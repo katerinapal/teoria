@@ -1,72 +1,69 @@
-import ext_vows_vows from "vows";
-import ext_assert_assert from "assert";
-import { teoria as _teoria } from "../";
+"use strict";
 
-ext_vows_vows.describe('Scales').addBatch({
-  'Ab2': {
-    topic: function() {
-      return _teoria.note('Ab2');
-    },
+var _vows = require("vows");
 
-    'Blues': function(note) {
-      ext_assert_assert.deepEqual(_teoria.note('g#').scale('blues').simple(),
-          ['g#', 'b', 'c#', 'd', 'd#', 'f#']);
-    },
+var _vows2 = _interopRequireDefault(_vows);
 
-    'Ionian/Major': function(note) {
-      ext_assert_assert.deepEqual(note.scale('ionian').simple(),
-          ['ab', 'bb', 'c', 'db', 'eb', 'f', 'g']);
-    },
+var _assert = require("assert");
 
-    'Dorian': function(note) {
-      ext_assert_assert.deepEqual(note.scale('dorian').simple(),
-          ['ab', 'bb', 'cb', 'db', 'eb', 'f', 'gb']);
-    },
+var _assert2 = _interopRequireDefault(_assert);
 
-    'Phrygian': function(note) {
-      ext_assert_assert.deepEqual(note.scale('phrygian').simple(),
-          ["ab", "bbb", "cb", "db", "eb", "fb", "gb"]);
-    },
+var _ = require("../");
 
-    'Lydian': function(note) {
-      ext_assert_assert.deepEqual(note.scale('lydian').simple(),
-          ["ab", "bb", "c", "d", "eb", "f", "g"]);
-    },
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-    'Mixolydian': function(note) {
-      ext_assert_assert.deepEqual(note.scale('mixolydian').simple(),
-          ["ab", "bb", "c", "db", "eb", "f", "gb"]);
-    },
+_vows2.default.describe('Scales').addBatch({
+    'Ab2': {
+        topic: function topic() {
+            return _.teoria.note('Ab2');
+        },
 
-    'Aeolian/Minor': function(note) {
-      ext_assert_assert.deepEqual(note.scale('aeolian').simple(),
-          ["ab", "bb", "cb", "db", "eb", "fb", "gb"]);
-    },
+        'Blues': function Blues(note) {
+            _assert2.default.deepEqual(_.teoria.note('g#').scale('blues').simple(), ['g#', 'b', 'c#', 'd', 'd#', 'f#']);
+        },
 
-    'Locrian': function(note) {
-      ext_assert_assert.deepEqual(note.scale('locrian').simple(),
-          ["ab", "bbb", "cb", "db", "ebb", "fb", "gb"]);
-    },
+        'Ionian/Major': function IonianMajor(note) {
+            _assert2.default.deepEqual(note.scale('ionian').simple(), ['ab', 'bb', 'c', 'db', 'eb', 'f', 'g']);
+        },
 
-    'Major Pentatonic': function(note) {
-      ext_assert_assert.deepEqual(note.scale('majorpentatonic').simple(),
-          ["ab", "bb", "c", "eb", "f"]);
-    },
+        'Dorian': function Dorian(note) {
+            _assert2.default.deepEqual(note.scale('dorian').simple(), ['ab', 'bb', 'cb', 'db', 'eb', 'f', 'gb']);
+        },
 
-    'Minor Pentatonic': function(note) {
-      ext_assert_assert.deepEqual(note.scale('minorpentatonic').simple(),
-          ["ab", "cb", "db", "eb", "gb"]);
-    },
+        'Phrygian': function Phrygian(note) {
+            _assert2.default.deepEqual(note.scale('phrygian').simple(), ["ab", "bbb", "cb", "db", "eb", "fb", "gb"]);
+        },
 
-    'Chromatic': function(note) {
-      ext_assert_assert.deepEqual(note.scale('chromatic').simple(),
-          ["ab", "bbb", "bb", "cb", "c", "db",
-           "d", "eb", "fb", "f", "gb", "g"]);
-    },
+        'Lydian': function Lydian(note) {
+            _assert2.default.deepEqual(note.scale('lydian').simple(), ["ab", "bb", "c", "d", "eb", "f", "g"]);
+        },
 
-    'Whole Tone': function(note) {
-      ext_assert_assert.deepEqual(_teoria.note('c').scale('wholetone').simple(),
-        ["c", "d", "e", "f#", "g#", "a#"]);
+        'Mixolydian': function Mixolydian(note) {
+            _assert2.default.deepEqual(note.scale('mixolydian').simple(), ["ab", "bb", "c", "db", "eb", "f", "gb"]);
+        },
+
+        'Aeolian/Minor': function AeolianMinor(note) {
+            _assert2.default.deepEqual(note.scale('aeolian').simple(), ["ab", "bb", "cb", "db", "eb", "fb", "gb"]);
+        },
+
+        'Locrian': function Locrian(note) {
+            _assert2.default.deepEqual(note.scale('locrian').simple(), ["ab", "bbb", "cb", "db", "ebb", "fb", "gb"]);
+        },
+
+        'Major Pentatonic': function MajorPentatonic(note) {
+            _assert2.default.deepEqual(note.scale('majorpentatonic').simple(), ["ab", "bb", "c", "eb", "f"]);
+        },
+
+        'Minor Pentatonic': function MinorPentatonic(note) {
+            _assert2.default.deepEqual(note.scale('minorpentatonic').simple(), ["ab", "cb", "db", "eb", "gb"]);
+        },
+
+        'Chromatic': function Chromatic(note) {
+            _assert2.default.deepEqual(note.scale('chromatic').simple(), ["ab", "bbb", "bb", "cb", "c", "db", "d", "eb", "fb", "f", "gb", "g"]);
+        },
+
+        'Whole Tone': function WholeTone(note) {
+            _assert2.default.deepEqual(_.teoria.note('c').scale('wholetone').simple(), ["c", "d", "e", "f#", "g#", "a#"]);
+        }
     }
-  }
 }).export(module);
