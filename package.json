@@ -1,40 +1,52 @@
 {
-  "name": "teoria",
-  "version": "2.2.0",
-  "description": "Music theory for JavaScript",
-  "homepage": "http://saebekassebil.github.com/teoria",
-  "keywords": [
-    "music",
-    "theory",
-    "jazz",
-    "classical",
-    "chord"
-  ],
-  "main": "./index.js",
-  "author": {
-    "name": "Jakob Miland <saebekassebil>",
-    "email": "saebekassebil@gmail.com",
-    "url": "https://github.com/saebekassebil"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/saebekassebil/teoria"
-  },
-  "license": "MIT",
-  "scripts": {
-    "test": "vows --dot-matric test/*",
-    "lint": "jshint index.js lib/",
-    "bundle": "browserify index.js --standalone teoria > teoria.js"
-  },
-  "devDependencies": {
-    "jshint": ">=0.9.0",
-    "vows": ">= 0.6.0"
-  },
-  "dependencies": {
-    "daccord": "^1.0.1",
-    "helmholtz": "^2.0.1",
-    "interval-coords": "^1.1.1",
-    "pitch-fq": "^1.0.0",
-    "scientific-notation": "^1.0.0"
-  }
+    "name": "teoria",
+    "version": "2.2.0",
+    "description": "Music theory for JavaScript",
+    "homepage": "http://saebekassebil.github.com/teoria",
+    "keywords": [
+        "music",
+        "theory",
+        "jazz",
+        "classical",
+        "chord"
+    ],
+    "main": "./index.js",
+    "author": {
+        "name": "Jakob Miland <saebekassebil>",
+        "email": "saebekassebil@gmail.com",
+        "url": "https://github.com/saebekassebil"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/saebekassebil/teoria"
+    },
+    "license": "MIT",
+    "scripts": {
+        "test": "vows --dot-matric test/*",
+        "lint": "jshint index.js lib/",
+        "bundle": "browserify index.js --standalone teoria > teoria.js",
+        "compile-test": "babel test --out-dir test --require babel-polyfill --presets env",
+        "compile-lib": "babel lib --out-dir lib --require babel-polyfill --presets env",
+        "compile-indexjs": "babel index.js -o index.js --require babel-polyfill --presets env",
+        "compile-1_script": "npm run compile-test && npm run compile-lib && npm run compile-indexjs",
+        "compile": "npm run compile-1_script"
+    },
+    "devDependencies": {
+        "jshint": ">=0.9.0",
+        "vows": ">= 0.6.0",
+        "babel-cli": "latest",
+        "babel-core": "latest",
+        "babel-plugin-add-module-exports": "latest",
+        "babel-plugin-transform-es2015-modules-commonjs": "latest",
+        "babel-polyfill": "latest",
+        "babel-plugin-transform-object-rest-spread": "latest",
+        "babel-preset-env": "latest"
+    },
+    "dependencies": {
+        "daccord": "^1.0.1",
+        "helmholtz": "^2.0.1",
+        "interval-coords": "^1.1.1",
+        "pitch-fq": "^1.0.0",
+        "scientific-notation": "^1.0.0"
+    }
 }
